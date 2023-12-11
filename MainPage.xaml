@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:zxing="clr-namespace:ZXing.Net.Maui.Controls;assembly=ZXing.Net.MAUI.Controls"
+             x:Class="BarcodeScanner.MainPage">
+
+    <ScrollView>
+        <VerticalStackLayout
+            Padding="30,0"
+            Spacing="25">
+            <Image
+                Source="dotnet_bot.png"
+                HeightRequest="185"
+                Aspect="AspectFit"
+                SemanticProperties.Description="dot net bot in a race car number eight" />
+
+            <!--See Event to Command Behavior from .NET MAUI Community Toolkit-->
+            <zxing:CameraBarcodeReaderView  x:Name="barcodeReader"
+                                            WidthRequest="300"
+                                            HeightRequest="100"
+                IsDetecting="True" IsTorchOn="False" 
+                                           BarcodesDetected="CameraBarcodeReaderView_BarcodesDetected"/>
+
+            <Label
+                x:Name="barcodeResult"
+                Text="Hello, World!"
+                Style="{StaticResource Headline}"
+                SemanticProperties.HeadingLevel="Level1" />
+
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>
